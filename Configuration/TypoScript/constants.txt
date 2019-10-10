@@ -1,0 +1,61 @@
+plugin.tx_nszohocrm {
+  settings {
+
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.authtoken
+    authtoken = authtoken
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.firstname
+    firstname = firstname
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.lastname
+    lastname = lastname
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.email
+    email = email
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.company
+    company = company
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.description
+    description = description
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.leadsource
+    leadsource = leadsource
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.phone
+    phone = phone
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.website
+    website = website
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.title
+    title = title
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.mobile
+    mobile = mobile
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.fax
+    fax = fax
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.industry
+    industry = industry
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.annualrevenue
+    annualrevenue = annualrevenue
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.noofemployees
+    noofemployees = noofemployees
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.emailoptout
+    emailoptout = emailoptout
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.rating
+    rating = rating
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.skypeid
+    skypeid = skypeid
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.twitter
+    twitter = twitter
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.secondaryemail
+    secondaryemail = secondaryemail
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.street
+    street = street
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.city
+    city = city
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.state
+    state = state
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.zipcode
+    zipcode = zipcode
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.country
+    country = country
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.attachment
+    attachment = attachment
+    # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.profilephoto
+    profilephoto = attachment
+    
+  }
+
+}

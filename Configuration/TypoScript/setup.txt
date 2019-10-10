@@ -1,0 +1,43 @@
+
+# Add finisher of powermail
+plugin.tx_powermail.settings {
+	setup{
+		finishers {
+	        1 {
+	            class = Nitsan\NsZohoCrm\Finisher\ApiFinisher
+	        }
+	    }
+	}
+}
+
+plugin.tx_nszohocrm {  
+    settings {        
+        authtoken = {$plugin.tx_nszohocrm.settings.authtoken}
+        firstname = {$plugin.tx_nszohocrm.settings.firstname}
+        lastname = {$plugin.tx_nszohocrm.settings.lastname}
+        email = {$plugin.tx_nszohocrm.settings.email}
+        company = {$plugin.tx_nszohocrm.settings.company}
+        description = {$plugin.tx_nszohocrm.settings.description}
+        leadsource = {$plugin.tx_nszohocrm.settings.leadsource}
+        phone = {$plugin.tx_nszohocrm.settings.phone}
+        website = {$plugin.tx_nszohocrm.settings.website}
+        title = {$plugin.tx_nszohocrm.settings.title}
+        mobile = {$plugin.tx_nszohocrm.settings.mobile}
+        fax = {$plugin.tx_nszohocrm.settings.fax}
+        industry = {$plugin.tx_nszohocrm.settings.industry}
+        annualrevenue = {$plugin.tx_nszohocrm.settings.annualrevenue}
+        noofemployees = {$plugin.tx_nszohocrm.settings.noofemployees}
+        emailoptout = {$plugin.tx_nszohocrm.settings.emailoptout}
+        rating = {$plugin.tx_nszohocrm.settings.rating}
+        skypeid = {$plugin.tx_nszohocrm.settings.skypeid}
+        twitter = {$plugin.tx_nszohocrm.settings.twitter}
+        secondaryemail = {$plugin.tx_nszohocrm.settings.secondaryemail}
+        street = {$plugin.tx_nszohocrm.settings.street}
+        city = {$plugin.tx_nszohocrm.settings.city}
+        state = {$plugin.tx_nszohocrm.settings.state}
+        zipcode = {$plugin.tx_nszohocrm.settings.zipcode}
+        country = {$plugin.tx_nszohocrm.settings.country}
+        attachment = {$plugin.tx_nszohocrm.settings.attachment}
+        profilephoto = {$plugin.tx_nszohocrm.settings.profilephoto}
+    }
+}

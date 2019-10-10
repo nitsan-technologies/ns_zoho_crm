@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-08-03T12:31:30Z" product-name="ns_zoho_crm">
+		<header/>
+		<body>
+			<trans-unit id="settings.firstname" xml:space="preserve">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="settings.authtoken" xml:space="preserve">
+				<source>Auth Token</source>
+			</trans-unit>			
+			<trans-unit id="settings.lastname" xml:space="preserve">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="settings.email" xml:space="preserve">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="settings.company" xml:space="preserve">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="settings.description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="settings.leadsource" xml:space="preserve">
+				<source>Lead Source</source>
+			</trans-unit>
+			<trans-unit id="settings.phone" xml:space="preserve">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="settings.website" xml:space="preserve">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="settings.title" xml:space="preserve">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="settings.mobile" xml:space="preserve">
+				<source>Mobile</source>
+			</trans-unit>
+			<trans-unit id="settings.fax" xml:space="preserve">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="settings.industry" xml:space="preserve">
+				<source>Industry</source>
+			</trans-unit>
+			<trans-unit id="settings.annualrevenue" xml:space="preserve">
+				<source>Annualrevenue</source>
+			</trans-unit>
+			<trans-unit id="settings.noofemployees" xml:space="preserve">
+				<source>No Of Employees</source>
+			</trans-unit>
+			<trans-unit id="settings.emailoptout" xml:space="preserve">
+				<source>Email Opt Out</source>
+			</trans-unit>
+			<trans-unit id="settings.rating" xml:space="preserve">
+				<source>Rating</source>
+			</trans-unit>
+			<trans-unit id="settings.skypeid" xml:space="preserve">
+				<source>Skype Id</source>
+			</trans-unit>
+			<trans-unit id="settings.twitter" xml:space="preserve">
+				<source>Twitter</source>
+			</trans-unit>
+			<trans-unit id="settings.secondaryemail" xml:space="preserve">
+				<source>Secondary Email</source>
+			</trans-unit>
+			<trans-unit id="settings.street" xml:space="preserve">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="settings.city" xml:space="preserve">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="settings.state" xml:space="preserve">
+				<source>State</source>
+			</trans-unit>
+			<trans-unit id="settings.zipcode" xml:space="preserve">
+				<source>Zipcode</source>
+			</trans-unit>
+			<trans-unit id="settings.country" xml:space="preserve">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="settings.attachment" xml:space="preserve">
+				<source>Attachment</source>
+			</trans-unit>
+			<trans-unit id="settings.profilephoto" xml:space="preserve">
+				<source>Profile photo</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>
