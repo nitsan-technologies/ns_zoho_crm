@@ -23,7 +23,6 @@
     }
   },
   "replace": {
-      "ns_zoho_crm": "self.version",
       "nitsan/ns-zoho-crm": "self.version"
   },
   "extra": {
