@@ -1,7 +1,7 @@
 {
   "name": "nitsan/ns-zoho-crm",
   "type": "typo3-cms-extension",
-  "description": "One of the only TYPO3 extension which provides to integrate features of Zoho like add leads all information from typo3 site.",
+  "description": "Easily install and configure your powermail form with zoho CRM, read more at documentation. Live-Demo: https://demo.t3terminal.com/t3t-extensions/ You can download PRO version for more-features & free-support at https://t3terminal.com/typo3-zoho-crm-free/",
   "homepage": "https://extensions.typo3.org/extension/ns_zoho_crm/",
   "license": "GPL-2.0+",
   "keywords": [
@@ -14,7 +14,7 @@
     "issues": "https://github.com/nitsan-technologies/ns_zoho_crm/issues"
   },
   "require": {
-    "typo3/cms-core": ">=7.6.0",
+    "typo3/cms-core": ">=6.2.0",
     "in2code/powermail": ">=2.1.0"
   },
   "autoload": {
