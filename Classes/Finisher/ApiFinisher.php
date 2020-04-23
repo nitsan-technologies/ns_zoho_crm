@@ -2,8 +2,7 @@
 namespace Nitsan\NsZohoCrm\Finisher;
 
 use In2code\Powermail\Finisher\AbstractFinisher;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility as Debug;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -28,10 +27,10 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility as Debug;
  ***************************************************************/
 
 /**
- * Class ApiFinisher 
- * 
+ * Class ApiFinisher
+ *
  * @package Nitsan/NsZohoCrm/Finisher
-*/
+ */
 class ApiFinisher extends AbstractFinisher
 {
     /**
@@ -41,42 +40,41 @@ class ApiFinisher extends AbstractFinisher
      */
     public function getFinisher()
     {
-        // get configuration from extension manager        
+        // get configuration from extension manager
         $constant = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_nszohocrm.']['settings.'];
         $auth = $constant['authtoken'];
-        
+
         // get subject from mail
         $subject = $this->getMail()->getSubject();
-        $settings  = $this->getSettings();        
+        $settings = $this->getSettings();
 
-        if((int)$GLOBALS['TYPO3_CONF_VARS']['SYS']['compat_version'] < 7){
+        if ((int) $GLOBALS['TYPO3_CONF_VARS']['SYS']['compat_version'] < 7) {
             //version 6
             $fields = $this->getMail()->getAnswers();
-            $avilablefileds=array();
+            $avilablefileds = array();
             foreach ($fields as $key => $value) {
-                $avilablefileds[$value->getField()->geTtitle()]= $value->getValue();
+                $avilablefileds[$value->getField()->geTtitle()] = $value->getValue();
             }
-        }else{
-            // version 7 and 8 
+        } else {
+            // version 7 and 8
             $fields = $this->getMail()->getAnswersByFieldMarker();
-            $avilablefileds=array();
+            $avilablefileds = array();
             foreach ($fields as $key => $value) {
-                $avilablefileds[$key]= $this->getMail()->getAnswersByFieldMarker()[$key]->getValue();    
+                $avilablefileds[$key] = $this->getMail()->getAnswersByFieldMarker()[$key]->getValue();
             }
         }
-
         // postData to CRM module
         $result = $this->postData($auth, $avilablefileds);
 
-        // get recordId from CRM Module
-        $xmlpath = simplexml_load_string($result);
-        $json  = json_encode($xmlpath);        
-        $configData = json_decode($json, true);
-        $recordId = $configData['result']['recorddetail']['FL']['0'];
+        $result2 = json_decode($result);
+        $data = get_object_vars($result2);
+        $data2 = get_object_vars($data['data'][0]);
+        $data3 = get_object_vars($data2['details']);
+        $recordId = $data3['id'];
 
-        // UploadFiles to CRM Module        
-        $file = $this->uploadFile($auth,$recordId,$avilablefileds[$constant["attachment"]],'uploadFile');
-        $profilephoto = $this->uploadFile($auth,$recordId,$avilablefileds[$constant["profilephoto"]],'uploadPhoto');        
+        // UploadFiles to CRM Module
+        $file = $this->uploadFile('Attachments', $auth, $recordId, $avilablefileds[$constant["attachment"]]);
+        $profilephoto = $this->uploadFile('photo', $auth, $recordId, $avilablefileds[$constant["profilephoto"]]);
     }
 
     /**
@@ -84,46 +82,43 @@ class ApiFinisher extends AbstractFinisher
      *
      * @return void
      */
-    public function postData($auth,$avilablefileds)
+    public function postData($auth, $avilablefileds)
     {
         $constant = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_nszohocrm.']['settings.'];
-        $xml = 
-            '<?xml version="1.0" encoding="UTF-8"?>
-            <Leads>
-                <row no="1">
-                    <FL val="Lead Status">New Lead</FL>
-                    <FL val="First Name">'.$avilablefileds[$constant["firstname"]].'</FL>
-                    <FL val="Last Name">'.$avilablefileds[$constant["lastname"]].'</FL>
-                    <FL val="Email">'.$avilablefileds[$constant["email"]].'</FL>
-                    <FL val="Description">'.$avilablefileds[$constant["description"]].'</FL>
-                    <FL val="Company">'.$avilablefileds[$constant["company"]].'</FL>                    
-                    <FL val="Lead Source">'.$avilablefileds[$constant["leadsource"]].'</FL>
-                    <FL val="Phone">'.$avilablefileds[$constant["phone"]].'</FL>
-                    <FL val="Website">'.$avilablefileds[$constant["website"]].'</FL>
-                    <FL val="Title">'.$avilablefileds[$constant["title"]].'</FL>
-                    <FL val="Mobile">'.$avilablefileds[$constant["mobile"]].'</FL>
-                    <FL val="Fax">'.$avilablefileds[$constant["fax"]].'</FL>
-                    <FL val="Industry">'.$avilablefileds[$constant["industry"]].'</FL>
-                    <FL val="Annual Revenue">'.$avilablefileds[$constant["annualrevenue"]].'</FL>
-                    <FL val="No of Employees">'.$avilablefileds[$constant["noofemployees"]].'</FL>
-                    <FL val="Email Opt Out">'.$avilablefileds[$constant["emailoptout"]].'</FL>
-                    <FL val="Rating">'.$avilablefileds[$constant["rating"]].'</FL>
-                    <FL val="Skype ID">'.$avilablefileds[$constant["skypeid"]].'</FL>
-                    <FL val="Twitter">'.$avilablefileds[$constant["twitter"]].'</FL>
-                    <FL val="Secondary Email">'.$avilablefileds[$constant["secondaryemail"]].'</FL>
-                    <FL val="Street">'.$avilablefileds[$constant["street"]].'</FL>
-                    <FL val="City">'.$avilablefileds[$constant["city"]].'</FL>
-                    <FL val="State">'.$avilablefileds[$constant["state"]].'</FL>
-                    <FL val="Zip Code">'.$avilablefileds[$constant["zipcode"]].'</FL>
-                    <FL val="Country">'.$avilablefileds[$constant["country"]].'</FL>
-                </row>
-            </Leads>';
-
-        $url ="https://crm.zoho.com/crm/private/xml/Leads/insertRecords";
-        $query="authtoken=".$auth."&scope=crmapi&newFormat=1&xmlData=".$xml;
+        $url = "https://www.zohoapis.in/crm/v2/Leads";
+        $json = '{
+                "data":[
+                {
+                    "First_Name":"' . $avilablefileds[$constant["firstname"]] . '",
+                    "Last_Name":"' . $avilablefileds[$constant["lastname"]] . '",
+                    "Email":"' . $avilablefileds[$constant["email"]] . '",
+                    "Description":"' . $avilablefileds[$constant["description"]] . '",
+                    "Company":"' . $avilablefileds[$constant["company"]] . '",
+                    "Lead_Source":"' . $avilablefileds[$constant["leadsource"]] . '",
+                    "Phone":"' . $avilablefileds[$constant["phone"]] . '",
+                    "Website":"' . $avilablefileds[$constant["website"]] . '",
+                    "Designation":"' . $avilablefileds[$constant["title"]] . '",
+                    "Mobile":"' . $avilablefileds[$constant["mobile"]] . '",
+                    "Fax":"' . $avilablefileds[$constant["fax"]] . '",
+                    "Industry":"' . $avilablefileds[$constant["industry"]] . '",
+                    "Annual_Revenue":"' . $avilablefileds[$constant["annualrevenue"]] . '",
+                    "No_of_Employees":"' . $avilablefileds[$constant["noofemployees"]] . '",
+                    "Email_Opt_Out":"' . $avilablefileds[$constant["emailoptout"]] . '",
+                    "Rating":"' . $avilablefileds[$constant["rating"]] . '",
+                    "Skype_ID":"' . $avilablefileds[$constant["skypeid"]] . '",
+                    "Twitter":"' . $avilablefileds[$constant["twitter"]] . '",
+                    "Secondary_Email":"' . $avilablefileds[$constant["secondaryemail"]] . '",
+                    "Street":"' . $avilablefileds[$constant["street"]] . '",
+                    "City":"' . $avilablefileds[$constant["city"]] . '",
+                    "State":"' . $avilablefileds[$constant["state"]] . '",
+                    "Zip_Code":"' . $avilablefileds[$constant["zipcode"]] . '",
+                    "Country":"' . $avilablefileds[$constant["country"]] . '"
+                }
+            ]
+        }';
 
         // curl configuration for postData
-        $response = $this->getCurl($url,$query);        
+        $response = $this->getCurl($url, $json, $auth, 'application/json');
         return $response;
     }
 
@@ -132,26 +127,27 @@ class ApiFinisher extends AbstractFinisher
      *
      * @return void
      */
-    public function uploadFile($auth,$recordId,$sendyourdetail,$fieldname)
+    public function uploadFile($attachType, $auth, $recordId, $sendyourdetail)
     {
+
         // Upload file to CRM module
         $target_dir = '/uploads/tx_powermail/';
         $filename = $_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['SCRIPT_NAME']) . $target_dir . $sendyourdetail['0'];
-        
-        if(function_exists('curl_file_create')){
-            $cfile = curl_file_create($filename,'',basename($filename));
+
+        if (function_exists('curl_file_create')) {
+            $cfile = curl_file_create($filename, '', basename($filename));
         }
 
         // Path for uploadFiles to CRM module
-        $url = "https://crm.zoho.com/crm/private/json/Leads/".$fieldname."?authtoken=".$auth."&scope=crmapi";        
-        $query = array("id" => $recordId,"content" => $cfile);
-        
-        // curl configuration for uploadFiles 
-        $response = $this->getCurl($url,$query);
+        $url = "https://www.zohoapis.in/crm/v2/Leads/" . $recordId . "/" . $attachType;
+        $json = array("file" => $cfile);
+
+        // curl configuration for uploadFiles
+        $response = $this->getCurl($url, $json, $auth, 'multipart/form-data');
         return $response;
     }
-    
-    public function getCurl($url,$query)
+
+    public function getCurl($url, $data, $auth, $contentType)
     {
         $ch = curl_init();
         /* set url to send post request */
@@ -160,18 +156,25 @@ class ApiFinisher extends AbstractFinisher
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         /* return a response into a variable */
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Accept: application/json',
+            'Content-Type:' . $contentType,
+            'Authorization: Zoho-oauthtoken ' . $auth, //Token required
+        ));
+
         /* times out after 30s */
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         /* set POST method */
         curl_setopt($ch, CURLOPT_POST, 1);
         /* add POST fields parameters */
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $query);// Set the request as a POST FIELD for curl.
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data); // Set the request as a POST FIELD for curl.
 
         //Execute cUrl session
         $response = curl_exec($ch);
 
         curl_close($ch);
         return $response;
-    }        
+    }
 
 }
