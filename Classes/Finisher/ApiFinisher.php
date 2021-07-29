@@ -85,7 +85,7 @@ class ApiFinisher extends AbstractFinisher
     public function postData($auth, $avilablefileds)
     {
         $constant = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_nszohocrm.']['settings.'];
-        $url = "https://www.zohoapis.in/crm/v2/Leads";
+        $url = $constant['zohoURL']."crm/v2/Leads";
         $json = '{
                 "data":[
                 {
@@ -139,7 +139,8 @@ class ApiFinisher extends AbstractFinisher
         }
 
         // Path for uploadFiles to CRM module
-        $url = "https://www.zohoapis.in/crm/v2/Leads/" . $recordId . "/" . $attachType;
+        $constant = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_nszohocrm.']['settings.'];
+        $url = $constant['zohoURL']."crm/v2/Leads/" . $recordId . "/" . $attachType;
         $json = array("file" => $cfile);
 
         // curl configuration for uploadFiles

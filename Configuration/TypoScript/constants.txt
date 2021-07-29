@@ -1,5 +1,8 @@
+#customsubcategory=zoho_90=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.zohoMain
 plugin.tx_nszohocrm {
   settings {
+    # cat=plugin.tx_nszohocrm/zoho_90/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.zohoURL
+    zohoURL = https://www.zohoapis.in/
 
     # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.authtoken
     authtoken = authtoken
@@ -55,7 +58,7 @@ plugin.tx_nszohocrm {
     attachment = attachment
     # cat=plugin.tx_nszohocrm/100/1; type=string; label=LLL:EXT:ns_zoho_crm/Resources/Private/Language/locallang_db.xlf:settings.profilephoto
     profilephoto = attachment
-    
+
   }
 
 }
