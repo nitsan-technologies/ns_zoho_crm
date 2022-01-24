@@ -23,7 +23,7 @@
     }
   },
   "replace": {
-      "nitsan/ns-zoho-crm": "self.version"
+      "typo3-ter/ns-zoho-crm": "self.version"
   },
   "extra": {
       "typo3/cms": {
