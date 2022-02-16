@@ -14,7 +14,7 @@
     "issues": "https://github.com/nitsan-technologies/ns_zoho_crm/issues"
   },
   "require": {
-    "typo3/cms-core": ">=6.2.0",
+    "typo3/cms-core": "^6.0 || ^7.0 || ^8.0  || ^9.0 || ^10.0 ",
     "in2code/powermail": ">=2.1.0"
   },
   "autoload": {
