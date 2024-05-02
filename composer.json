@@ -1,7 +1,7 @@
 {
   "name": "nitsan/ns-zoho-crm",
   "type": "typo3-cms-extension",
-  "description": "Easily install and configure your powermail form with zoho CRM, read more at documentation. Live-Demo: https://demo.t3terminal.com/t3t-extensions/ You can download PRO version for more-features & free-support at https://t3terminal.com/typo3-zoho-crm-free/",
+  "description": "Easily install and configure your powermail form with zoho CRM, read more at documentation.",
   "homepage": "https://extensions.typo3.org/extension/ns_zoho_crm/",
   "license": "GPL-2.0+",
   "keywords": [
