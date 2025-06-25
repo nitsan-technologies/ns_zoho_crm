@@ -1,12 +1,12 @@
 <?php
 
 $EM_CONF['ns_zoho_crm'] = [
-    'title' => 'TYPO3 + Zoho CRM',
-    'description' => 'Easily install and configure your powermail form with zoho CRM, read more at documentation.',
+    'title' => 'Zoho CRM Integration for TYPO3',
+    'description' => 'Integrate Zoho CRM with TYPO3 using Powermail. Automatically sync form submissions to your CRM without coding.',
     'category' => 'plugin',
-    'author' => 'T3Planet // NITSAN',
-    'author_email' => 'sanjay@nitsan.in',
-    'author_company' => 'T3Planet // NITSAN',
+    'author' => 'Team T3Planet',
+    'author_email' => 'info@t3planet.de',
+    'author_company' => 'T3Planet',
     'state' => 'stable',
     'internal' => '',
     'uploadfolder' => '0',
