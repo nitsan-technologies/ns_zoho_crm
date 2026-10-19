@@ -16,6 +16,7 @@ $EM_CONF['ns_zoho_crm'] = [
     'constraints' => [
         'depends' => [
             'typo3' => '6.2.0-11.5.99',
+            'ns_license' => '14.5.4-14.9.99',
             'powermail' => '2.1.0-10.9.99'
         ],
         'conflicts' => [],

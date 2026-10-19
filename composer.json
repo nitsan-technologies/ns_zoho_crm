@@ -15,6 +15,7 @@
   },
   "require": {
     "typo3/cms-core": "^6.0 || ^7.0 || ^8.0  || ^9.0 || ^10.0 ",
+    "nitsan/ns-license": "^14.5.4",
     "in2code/powermail": ">=2.1.0"
   },
   "autoload": {
@@ -23,11 +24,11 @@
     }
   },
   "replace": {
-      "typo3-ter/ns-zoho-crm": "self.version"
+    "typo3-ter/ns-zoho-crm": "self.version"
   },
   "extra": {
-      "typo3/cms": {
-          "extension-key": "ns_zoho_crm"
-      }
+    "typo3/cms": {
+      "extension-key": "ns_zoho_crm"
+    }
   }
 }
