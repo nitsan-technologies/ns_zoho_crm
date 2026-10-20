@@ -12,10 +12,11 @@ $EM_CONF['ns_zoho_crm'] = [
     'uploadfolder' => '0',
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '3.0.1',
+    'version' => '3.0.2',
     'constraints' => [
         'depends' => [
             'typo3' => '6.2.0-11.5.99',
+            'ns_license' => '14.5.4-14.9.99',
             'powermail' => '2.1.0-10.9.99'
         ],
         'conflicts' => [],
